@@ -1,0 +1,11 @@
+[gd_scene load_steps=3 format=3 uid="uid://vwc2pbbeqkcc"]
+
+[ext_resource type="Script" uid="uid://ceju65m3swml2" path="res://scenes/grid_space.gd" id="1_bnktq"]
+[ext_resource type="PackedScene" uid="uid://5recgamxhte2" path="res://scenes/piece.tscn" id="2_2pu0k"]
+
+[node name="GridSpace" type="Node2D"]
+script = ExtResource("1_bnktq")
+piece_scene = ExtResource("2_2pu0k")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+layer = 2

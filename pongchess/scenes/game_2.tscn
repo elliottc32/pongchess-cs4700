@@ -1,0 +1,100 @@
+[gd_scene load_steps=8 format=3 uid="uid://kht45rfsyacs"]
+
+[ext_resource type="Texture2D" uid="uid://hot1e07i7b7h" path="res://sprites/board_background.png" id="1_vttgw"]
+[ext_resource type="Texture2D" uid="uid://dl53msdx3aocs" path="res://sprites/horizontal_wall_standalone.png" id="2_r11to"]
+[ext_resource type="Theme" uid="uid://dbnqh2076e83m" path="res://sprites/ui_theme.tres" id="2_wgl31"]
+[ext_resource type="Texture2D" uid="uid://dyu3deoasya71" path="res://sprites/vertical_wall_standalone.png" id="3_3sm6k"]
+[ext_resource type="Texture2D" uid="uid://baj663vt3sf1d" path="res://sprites/bomb_standalone.png" id="4_wgl31"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_vttgw"]
+bg_color = Color(0.07928, 0.0432, 0.24, 1)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_r11to"]
+texture = ExtResource("1_vttgw")
+
+[node name="Game2" type="PanelContainer"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme_override_styles/panel = SubResource("StyleBoxFlat_vttgw")
+
+[node name="HBoxContainer" type="HBoxContainer" parent="."]
+layout_mode = 2
+
+[node name="LeftSide" type="VBoxContainer" parent="HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_stretch_ratio = 0.2
+
+[node name="TopSpacer" type="Control" parent="HBoxContainer/LeftSide"]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="P1PointsLabel" type="Label" parent="HBoxContainer/LeftSide"]
+layout_mode = 2
+size_flags_vertical = 6
+text = "P1 Points: 0"
+horizontal_alignment = 1
+
+[node name="P2PointsLabel" type="Label" parent="HBoxContainer/LeftSide"]
+layout_mode = 2
+size_flags_vertical = 6
+text = "P2 Points: 0"
+horizontal_alignment = 1
+
+[node name="Label" type="Label" parent="HBoxContainer/LeftSide"]
+layout_mode = 2
+size_flags_vertical = 6
+text = "Player 1's Turn!"
+horizontal_alignment = 1
+
+[node name="BottomSpacer" type="Control" parent="HBoxContainer/LeftSide"]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="Middle" type="VBoxContainer" parent="HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_stretch_ratio = 0.5
+
+[node name="PanelContainer" type="PanelContainer" parent="HBoxContainer/Middle"]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_styles/panel = SubResource("StyleBoxTexture_r11to")
+
+[node name="GridContainer" type="GridContainer" parent="HBoxContainer/Middle/PanelContainer"]
+layout_mode = 2
+columns = 8
+
+[node name="RightSide" type="VBoxContainer" parent="HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_stretch_ratio = 0.2
+
+[node name="HorizontalWallButton" type="Button" parent="HBoxContainer/RightSide"]
+layout_mode = 2
+size_flags_vertical = 3
+theme = ExtResource("2_wgl31")
+icon = ExtResource("2_r11to")
+icon_alignment = 1
+expand_icon = true
+
+[node name="VerticalWallButton" type="Button" parent="HBoxContainer/RightSide"]
+layout_mode = 2
+size_flags_vertical = 3
+theme = ExtResource("2_wgl31")
+icon = ExtResource("3_3sm6k")
+icon_alignment = 1
+expand_icon = true
+
+[node name="BombButton" type="Button" parent="HBoxContainer/RightSide"]
+layout_mode = 2
+size_flags_vertical = 3
+theme = ExtResource("2_wgl31")
+icon = ExtResource("4_wgl31")
+icon_alignment = 1
+expand_icon = true

@@ -1,0 +1,34 @@
+[gd_scene load_steps=5 format=3 uid="uid://dvff1c4vs81lq"]
+
+[ext_resource type="Script" uid="uid://35smdr6qiy61" path="res://scenes/global.gd" id="1_opebo"]
+[ext_resource type="PackedScene" uid="uid://drn2ewl7f17g8" path="res://scenes/game.tscn" id="2_m3l3d"]
+[ext_resource type="PackedScene" uid="uid://k511v16ymgg6" path="res://scenes/main_menu_ui.tscn" id="6_6rlim"]
+[ext_resource type="PackedScene" uid="uid://d2nxgr4bs2k8n" path="res://scenes/setup_menu_ui.tscn" id="7_mmyj5"]
+
+[node name="Global" type="Node" node_paths=PackedStringArray("game", "mainmenu_ui", "setupmenu_ui", "gamepaused_ui")]
+script = ExtResource("1_opebo")
+game = NodePath("Game")
+mainmenu_ui = NodePath("GlobalUI_Canvas/MainMenuUI")
+setupmenu_ui = NodePath("GlobalUI_Canvas/SetupMenuUI")
+gamepaused_ui = NodePath("GlobalUI_Canvas/GamePausedUI")
+
+[node name="Game" parent="." instance=ExtResource("2_m3l3d")]
+
+[node name="Camera2D" type="Camera2D" parent="."]
+zoom = Vector2(2.5, 2.5)
+
+[node name="GlobalUI_Canvas" type="CanvasLayer" parent="."]
+layer = 0
+
+[node name="MainMenuUI" parent="GlobalUI_Canvas" instance=ExtResource("6_6rlim")]
+
+[node name="SetupMenuUI" parent="GlobalUI_Canvas" instance=ExtResource("7_mmyj5")]
+
+[node name="GamePausedUI" type="Control" parent="GlobalUI_Canvas"]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[connection signal="start_button_pressed" from="GlobalUI_Canvas/MainMenuUI" to="." method="_on_main_menu_ui_start_button_pressed"]
+[connection signal="begin_match_button_pressed" from="GlobalUI_Canvas/SetupMenuUI" to="." method="_on_setup_menu_ui_begin_match_button_pressed"]

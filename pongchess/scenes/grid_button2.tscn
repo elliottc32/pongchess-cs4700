@@ -1,0 +1,21 @@
+[gd_scene load_steps=4 format=3 uid="uid://c63jsiuepmplm"]
+
+[ext_resource type="Texture2D" uid="uid://de2tasn8l73to" path="res://sprites/debug_gridspace.png" id="1_qjuxv"]
+[ext_resource type="Script" uid="uid://cwcvx34hx7efy" path="res://scenes/grid_button_2.gd" id="2_4vs6m"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_4vs6m"]
+
+[node name="PanelContainer" type="PanelContainer"]
+offset_right = 40.0
+offset_bottom = 40.0
+theme_override_styles/panel = SubResource("StyleBoxTexture_4vs6m")
+script = ExtResource("2_4vs6m")
+
+[node name="GridButton" type="Button" parent="."]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+icon = ExtResource("1_qjuxv")
+flat = true
+icon_alignment = 1
+expand_icon = true

@@ -1,0 +1,140 @@
+[gd_scene load_steps=2 format=3 uid="uid://d2nxgr4bs2k8n"]
+
+[ext_resource type="Script" uid="uid://xl6b2rdfkve1" path="res://scenes/setup_menu_ui.gd" id="1_au1nj"]
+
+[node name="SetupMenuUI" type="Control" node_paths=PackedStringArray("p1_label", "p2_label")]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_au1nj")
+p1_label = NodePath("VBoxContainer/PlayerChooserHBox/P1Panel/P1Label")
+p2_label = NodePath("VBoxContainer/PlayerChooserHBox/P2Panel/P2Label")
+
+[node name="Background" type="ColorRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.0632953, 0.0567594, 0.134951, 1)
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="TopSeparator" type="Control" parent="VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="PlayerChooserHBox" type="HBoxContainer" parent="VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="LeftFarSeparator" type="Control" parent="VBoxContainer/PlayerChooserHBox"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="P1LeftButton" type="Button" parent="VBoxContainer/PlayerChooserHBox"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "<"
+
+[node name="LeftMiddleSeparator" type="Control" parent="VBoxContainer/PlayerChooserHBox"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="P1Panel" type="PanelContainer" parent="VBoxContainer/PlayerChooserHBox"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="P1Label" type="Label" parent="VBoxContainer/PlayerChooserHBox/P1Panel"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "Human 1"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="LeftCloseSeparator" type="Control" parent="VBoxContainer/PlayerChooserHBox"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="P1RightButton" type="Button" parent="VBoxContainer/PlayerChooserHBox"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = ">"
+
+[node name="MiddleSeparator" type="Control" parent="VBoxContainer/PlayerChooserHBox"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="P2LeftButton" type="Button" parent="VBoxContainer/PlayerChooserHBox"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "<"
+
+[node name="RightCloseSeparator" type="Control" parent="VBoxContainer/PlayerChooserHBox"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="P2Panel" type="PanelContainer" parent="VBoxContainer/PlayerChooserHBox"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="P2Label" type="Label" parent="VBoxContainer/PlayerChooserHBox/P2Panel"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "Human 2"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="RightMiddleSeparator" type="Control" parent="VBoxContainer/PlayerChooserHBox"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="P2RightButton" type="Button" parent="VBoxContainer/PlayerChooserHBox"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = ">"
+
+[node name="RightFarSeparator" type="Control" parent="VBoxContainer/PlayerChooserHBox"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="MiddleSeparator" type="Control" parent="VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="StartHBox" type="HBoxContainer" parent="VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="LeftSeparator" type="Control" parent="VBoxContainer/StartHBox"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="BeginMatchButton" type="Button" parent="VBoxContainer/StartHBox"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "Begin Match"
+
+[node name="RightSeparator" type="Control" parent="VBoxContainer/StartHBox"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="BottomSeparator" type="Control" parent="VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+
+[connection signal="pressed" from="VBoxContainer/PlayerChooserHBox/P1LeftButton" to="." method="_on_p_1_left_button_pressed"]
+[connection signal="pressed" from="VBoxContainer/PlayerChooserHBox/P1RightButton" to="." method="_on_p_1_right_button_pressed"]
+[connection signal="pressed" from="VBoxContainer/PlayerChooserHBox/P2LeftButton" to="." method="_on_p_2_left_button_pressed"]
+[connection signal="pressed" from="VBoxContainer/PlayerChooserHBox/P2RightButton" to="." method="_on_p_2_right_button_pressed"]
+[connection signal="pressed" from="VBoxContainer/StartHBox/BeginMatchButton" to="." method="_on_begin_match_button_pressed"]

@@ -1,0 +1,17 @@
+[gd_scene load_steps=3 format=3 uid="uid://chfgsbujxkuq6"]
+
+[ext_resource type="Texture2D" uid="uid://de2tasn8l73to" path="res://sprites/debug_gridspace.png" id="1_ynyop"]
+[ext_resource type="Script" uid="uid://bbr7et5l460mv" path="res://scenes/grid_space_button.gd" id="2_mlp1n"]
+
+[node name="GridSpaceButton" type="TextureButton"]
+offset_right = 40.0
+offset_bottom = 40.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+size_flags_stretch_ratio = 8.33
+texture_normal = ExtResource("1_ynyop")
+stretch_mode = 5
+script = ExtResource("2_mlp1n")
+debug_selection_sprite = ExtResource("1_ynyop")
+
+[connection signal="pressed" from="." to="." method="_on_pressed"]
